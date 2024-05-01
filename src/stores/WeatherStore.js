@@ -61,7 +61,7 @@ export const useWeatherStore = defineStore("weatherstore", () => {
     try {
       const foreCastResults = await axiosClient.get(
         `data/2.5/forecast?lat=${la}&lon=${long}&cnt=40&appid=${
-          import.meta.env.VITE_API_KEY
+          import.meta.env.VITE_API
         }&units=metric`
       );
       console.log(foreCastResults.data.list);
@@ -115,12 +115,12 @@ export const useWeatherStore = defineStore("weatherstore", () => {
     try {
       const resultsLoc = await axiosClient.get(
         `/geo/1.0/reverse?lat=${la}&lon=${long}&appid=${
-          import.meta.env.VITE_API_KEY
+          import.meta.env.VITE_API
         }`
       );
       const resultsTemp = await axiosClient.get(
         `data/2.5/weather?lat=${la}&lon=${long}&appid=${
-          import.meta.env.VITE_API_KEY
+          import.meta.env.VITE_API
         }&units=metric`
       );
       // Geo Location
