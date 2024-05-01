@@ -31,7 +31,7 @@ export const useSearchWeatherStore = defineStore("searchweatherstore", () => {
     try {
       const resultsTemp = await axiosClient.get(
         `data/2.5/weather?q=${payload}&appid=${
-          import.meta.env.VITE_API_KEY
+          import.meta.env.VITE_API
         }&units=metric`
       );
       if (resultsTemp) {
@@ -51,7 +51,7 @@ export const useSearchWeatherStore = defineStore("searchweatherstore", () => {
       console.log(err);
     }
   };
-  const resetSearch = async () => {};
+
   return {
     getWeatherInformation,
     weatherData,
