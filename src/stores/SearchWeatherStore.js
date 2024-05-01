@@ -59,6 +59,5 @@ export const useSearchWeatherStore = defineStore("searchweatherstore", () => {
     iconUrl,
     url,
     isCityFound,
-    resetSearch,
   };
 });
