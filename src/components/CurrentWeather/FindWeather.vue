@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import LoadingView from "../Loading/LoadingView.vue";
 defineProps(['city', 'country', 'description', 'icon', 'temp', 'feels', 'humidity', 'wind'])
 import { useSearchWeatherStore } from "@/stores/SearchWeatherStore";
 const searchWeatherStore = useSearchWeatherStore();
@@ -8,7 +9,7 @@ const toKph = computed(() => Math.floor(searchWeatherStore.weatherData.wind * 1.
 </script>
 
 <template>
-
+    <LoadingView :isLoading="searchWeatherStore.isLoading" />
     <div class="py-16 text-center" v-if="!searchWeatherStore.isCityFound">
         <i class="fa-solid text-[10rem] text-blue-600 fa-circle-info py-6"></i>
         <p class="text-2xl font-bold">No weather information to show</p>

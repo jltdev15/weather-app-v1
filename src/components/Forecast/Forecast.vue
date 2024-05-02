@@ -1,5 +1,6 @@
 <template>
-    <div class="py-6 bg-gray-500 text-gray-50 animate__animated animate__zoomIn" v-if="!weatherStore.isLoading">
+    <LoadingViewForeCast :isLoading="weatherStore.isLoading" />
+    <div class="p-6 bg-gray-500 text-gray-50 animate__animated animate__zoomIn" v-if="!weatherStore.isLoading">
         <p class="text-xl font-bold text-center capitalize ">5-day forecast</p>
         <div class="grid grid-cols-5 gap-1">
             <ForcastItem v-for="data in props.forcast" :weather="data.weather[1]" :iconUrl='url + data.icon[0]'
@@ -10,6 +11,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import LoadingViewForeCast from '../Loading/LoadingViewForeCast.vue';
 import { useWeatherStore } from '@/stores/WeatherStore';
 import ForcastItem from './ForcastItem.vue';
 const weatherStore = useWeatherStore()

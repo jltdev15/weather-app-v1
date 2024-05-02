@@ -4,7 +4,6 @@ import { defineStore } from "pinia";
 import axiosClient from "../axiosClient";
 export const useSearchWeatherStore = defineStore("searchweatherstore", () => {
   // Initial State
-
   const isLoading = ref(false);
   const isCityFound = ref(false);
   const weatherData = reactive({
@@ -28,6 +27,7 @@ export const useSearchWeatherStore = defineStore("searchweatherstore", () => {
   // Methods
 
   const getWeatherInformation = async (payload) => {
+    isLoading.value = true;
     try {
       const resultsTemp = await axiosClient.get(
         `data/2.5/weather?q=${payload}&appid=${
@@ -35,6 +35,7 @@ export const useSearchWeatherStore = defineStore("searchweatherstore", () => {
         }&units=metric`
       );
       if (resultsTemp) {
+        isLoading.value = false;
         isCityFound.value = true;
         console.log(resultsTemp);
         // Weather Condition

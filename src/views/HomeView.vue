@@ -17,7 +17,7 @@ onMounted(async () => {
     <CurrentWeather />
 
 
-    <div class="py-3">
+    <div class="py-0">
       <Forecast :forcast="weatherStore.foreCastData" />
     </div>
   </div>

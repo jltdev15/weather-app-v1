@@ -4,7 +4,7 @@
         <div class="flex flex-col items-center gap-6">
             <div class="loading-spinner"></div>
 
-            <p class="text-xl text-gray-50">Loading current weather</p>
+            <p class="text-xl text-gray-50">Loading forecast data</p>
         </div>
     </div>
 
@@ -26,11 +26,11 @@ export default {
 <style scoped>
 .loading-overlay {
     position: absolute;
-    top: 0;
+    top: 60%;
     left: 0;
     width: 100%;
-    height: 80%;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 25%;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,8 +39,8 @@ export default {
 }
 
 .loading-spinner {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     border: 8px solid #fff;
     border-radius: 50%;
     border-top-color: rgb(3, 7, 247);

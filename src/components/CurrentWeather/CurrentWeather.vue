@@ -12,14 +12,13 @@ onMounted(async () => {
 
 })
 
-
 </script>
 
 <template>
     <div>
         <LoadingView :isLoading="weatherStore.isLoading" />
         <div clas :class="weatherStore.checkTime" v-if="!weatherStore.isLoading"
-            class="py-6 text-center shadow rounded-b-xl animate__animated animate__zoomIn">
+            class="py-6 text-center shadow animate__animated animate__zoomIn">
             <h1 class="flex items-center justify-center gap-3 text-lg">
                 <i class="px-1 text-xs fa-solid fa-location-dot"></i>
                 {{ weatherStore.weatherData.name }},{{ weatherStore.weatherData.town }} ,
